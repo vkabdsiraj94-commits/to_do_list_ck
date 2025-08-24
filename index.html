@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="user-profile">
+                <div class="profile-image">
+                    <img src="https://pixabay.com/get/g4c3703022225c5ad6f880b036db6e7b9aeb5a2ac055112a9b6a3958d110d273aa773b39528cb6ee3cdb8a81ee3e89449b9716dbd33defef84974f23186876fc4_1280.jpg" alt="User Profile">
+                </div>
+                <div class="profile-info">
+                    <h3>John Doe</h3>
+                    <p>john.doe@email.com</p>
+                </div>
+            </div>
+            
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#" class="nav-item"><i class="fas fa-exclamation-triangle"></i> Vital Task</a></li>
+                    <li><a href="#" class="nav-item"><i class="fas fa-tasks"></i> My Task</a></li>
+                    <li><a href="#" class="nav-item active"><i class="fas fa-list"></i> Task Categories</a></li>
+                    <li><a href="#" class="nav-item"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#" class="nav-item"><i class="fas fa-question-circle"></i> Help</a></li>
+                </ul>
+            </nav>
+            
+            <div class="logout-section">
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search-container">
+                    <div class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Search tasks..." id="searchInput">
+                    </div>
+                </div>
+                <div class="top-bar-right">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="current-date" id="currentDate"></div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="page-header">
+                    <h1>Task Categories</h1>
+                    <button class="add-category-btn" id="addCategoryBtn">
+                        <i class="fas fa-plus"></i> Add Category
+                    </button>
+                </div>
+
+                <div class="tables-container">
+                    <div class="table-card">
+                        <div class="table-header">
+                            <h2>Task Status</h2>
+                        </div>
+                        <div class="table-container">
+                            <table class="status-table" id="statusTable">
+                                <thead>
+                                    <tr>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="statusTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="table-card">
+                        <div class="table-header">
+                            <h2>Task Priority</h2>
+                        </div>
+                        <div class="table-container">
+                            <table class="priority-table" id="priorityTable">
+                                <thead>
+                                    <tr>
+                                        <th>Priority</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="priorityTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="addCategoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Category</h3>
+                <span class="close-modal" id="closeModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="categoryType">Category Type:</label>
+                    <select id="categoryType">
+                        <option value="status">Task Status</option>
+                        <option value="priority">Task Priority</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="categoryName">Category Name:</label>
+                    <input type="text" id="categoryName" placeholder="Enter category name">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn" id="cancelBtn">Cancel</button>
+                <button class="save-btn" id="saveCategoryBtn">Save Category</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
